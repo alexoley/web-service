@@ -1,0 +1,63 @@
+/** Add css rules here for your application. */
+
+@font-face {
+    font-family: 'Kanyon';
+    src: url('fonts/Kanyon-Regular.ttf');
+}
+
+body {
+    font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+    font-size: 18px !important;
+    margin: 0;
+    padding: 0;
+    background-image: url('images/mashed.jpg');
+}
+
+#inner {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 15px;
+    font-family: Kanyon;
+    font-size: 100px;
+    text-align: center;
+}
+
+#nav {
+    width: 940px;
+    margin: auto;
+}
+
+#nav ul {
+    padding: 0px;
+    list-style: none;
+}
+
+#nav ul li {
+    float: left;
+    width: 130px;
+    margin: 3px;
+    display: block;
+    color: #000000;
+    text-decoration: none;
+    font-family: Kanyon;
+    border: 1px solid black;
+    padding: 5px;
+    position: relative;
+}
+
+#nav a {
+    color: #000000 ;
+}
+
+#nav ul li:hover {
+    text-decoration: none;
+    font-family: Kanyon;
+    border: 2px solid #a8a7a7;
+    display: block;
+    padding: 5px;
+}
+
+.active {
+    font-size: 20px !important;
+    color: blue !important;
+}

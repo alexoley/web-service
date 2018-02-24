@@ -1,0 +1,56 @@
+CREATE TABLE public.article
+(
+  id integer NOT NULL,
+  name character varying(40) NOT NULL,
+  date_b date NOT NULL,
+  link text NOT NULL,
+  art_text text NOT NULL,
+  likes integer,
+  dislike integer,
+  ad_name character varying(40),
+  ad_contact character varying(20),
+  id_genre integer NOT NULL,
+  CONSTRAINT article_pkey PRIMARY KEY (id),
+  CONSTRAINT article_id_genre_fkey FOREIGN KEY (id_genre)
+      REFERENCES public.genre (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+);
+
+CREATE TABLE public.author
+(
+  id integer NOT NULL,
+  fname character varying(20) NOT NULL,
+  lname character varying(20) NOT NULL,
+  date_b date,
+  email character varying(20),
+  CONSTRAINT author_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE public.authorship
+(
+  id_author integer NOT NULL,
+  id_article integer NOT NULL,
+  CONSTRAINT authorship_id_article_fkey FOREIGN KEY (id_article)
+      REFERENCES public.article (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT authorship_id_author_fkey FOREIGN KEY (id_author)
+      REFERENCES public.author (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+);
+
+CREATE TABLE public.genre
+(
+  id integer NOT NULL,
+  name character varying(20) NOT NULL,
+  CONSTRAINT genre_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE public.subscriber
+(
+  id integer NOT NULL,
+  fname character varying(20) NOT NULL,
+  lname character varying(20) NOT NULL,
+  email character varying(20) NOT NULL,
+  pass character varying(32),
+  CONSTRAINT subscriber_pkey PRIMARY KEY (id)
+);
